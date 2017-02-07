@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baike.dao.AdminMapper" >
+  <resultMap id="BaseResultMap" type="com.baike.model.Admin" >
+    <id column="admin_id" property="adminId" jdbcType="INTEGER" />
+    <result column="admin_name" property="adminName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    admin_id, admin_name, password
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from admin
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.baike.model.Admin" >
+    insert into admin (admin_id, admin_name, password
+      )
+    values (#{adminId,jdbcType=INTEGER}, #{adminName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.baike.model.Admin" >
+    insert into admin
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="adminId != null" >
+        admin_id,
+      </if>
+      <if test="adminName != null" >
+        admin_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="adminId != null" >
+        #{adminId,jdbcType=INTEGER},
+      </if>
+      <if test="adminName != null" >
+        #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.baike.model.Admin" >
+    update admin
+    <set >
+      <if test="adminName != null" >
+        admin_name = #{adminName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.baike.model.Admin" >
+    update admin
+    set admin_name = #{adminName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </update>
+
+
+  <!--登陆-->
+  <select id="login" resultType="com.baike.model.Admin">
+    select
+    <include refid="Base_Column_List" />
+    from admin
+    where admin_name = #{name} AND password = #{password}
+  </select>
+
+  <select id="getRoles" parameterType="String" resultType="String">
+    select r.roleName from admin u,t_role r where u.roleId=r.id and u.admin_name=#{name}
+  </select>
+
+  <select id="getPermissions" parameterType="String" resultType="String">
+    select p.permissionName from admin u,t_role r,t_permission p where u.roleId=r.id and p.roleId=r.id and u.admin_name=#{name}
+  </select>
+
+  <select id="find" parameterType="Map" resultMap="BaseResultMap">
+    select * from admin
+    <where>
+      <if test="adminName !=null and adminName!='' ">
+        and admin_name like #{adminName} and
+      </if>
+    </where>
+    <if test="start!=null and size!=null">
+      limit #{start},#{size}
+    </if>
+  </select>
+  <select id="getTotal" parameterType="Map" resultType="Long">
+    select count(*) from admin
+    <where>
+      <if test="adminName !=null and adminName!='' ">
+        and admin_name like #{adminName} and
+      </if>
+    </where>
+  </select>
+
+
+
+
+
+
+
+
+</mapper>
