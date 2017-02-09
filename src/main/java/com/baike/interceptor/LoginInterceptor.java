@@ -32,7 +32,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         if (user == null){
-            response.sendRedirect("/login.jsp");
+            response.sendRedirect("/login.html");
         }
         return true;
     }

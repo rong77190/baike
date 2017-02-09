@@ -57,7 +57,7 @@ public class ManageAdminController extends SpringMvcActionContext {
     @RequestMapping("/logout")
     public String logout() {
         getSession().removeAttribute("admin");
-        return "redirect:/admin/login.jsp";
+        return "redirect:/admin/login.html";
     }
 
 
