@@ -15,7 +15,9 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Created by dell on 2016/7/19.
+ * 上传图片的控制器
+ * @author xiechur
+ *
  */
 
 
@@ -104,9 +106,9 @@ public class UploadController {
 		return "/success";
 	}
 	
-	@RequestMapping("/toUpload")
-	public String toUpload(){
-		return "/upload";	}
+//	@RequestMapping("/toUpload")
+//	public String toUpload(){
+//		return "/upload";	}
 
 }
 

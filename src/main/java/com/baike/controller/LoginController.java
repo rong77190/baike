@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by huanghaojian on 17/1/5.
+ * 用户登陆，注册，忘记密码
  */
 @Controller
 @RequestMapping("/login")
@@ -38,7 +38,10 @@ public class LoginController extends SpringMvcActionContext {
         return "/login";
     }
 
-    /* 登录*/
+    /**
+     * 登陆
+     * @param login
+     */
     @RequestMapping(value = "/login")
     @ResponseBody
     public Object login(Login login) {

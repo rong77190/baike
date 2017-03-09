@@ -21,7 +21,8 @@ import java.io.InputStream;
 import java.util.*;
 
 /**
- * Created by xiechur on 2016/8/25.
+ * 用户 的控制器
+ * @author xiechur
  */
 @Controller
 @RequestMapping(value = "/user")

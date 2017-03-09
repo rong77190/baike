@@ -20,7 +20,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by xiechur on 2016/11/25/025.
+ * 管理员的控制器
+ * @author xiechur
  */
 
 @Controller

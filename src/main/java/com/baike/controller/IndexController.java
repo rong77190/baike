@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/1/7/007.
+ * 首页
+ * @author xiechur
  */
 @Controller
 public class IndexController extends SpringMvcActionContext{

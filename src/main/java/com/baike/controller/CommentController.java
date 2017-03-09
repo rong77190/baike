@@ -16,7 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by xiechur on 2017/1/4/004.
+ * 评论的控制器
+ * @author xiechur
  */
 @Controller
 public class CommentController extends SpringMvcActionContext {

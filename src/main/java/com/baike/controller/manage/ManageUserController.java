@@ -20,7 +20,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Administrator on 2017/1/5/005.
+ * 管理用户的控制器
+ * @author xiechur
  */
 @Controller
 @RequestMapping("manage/user")

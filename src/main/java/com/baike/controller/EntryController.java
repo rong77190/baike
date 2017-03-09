@@ -12,7 +12,9 @@ import javax.annotation.Resource;
 import java.util.*;
 
 /**
- * Created by Administrator on 2017/1/4/004.
+ * 词条控制器
+ * @author xiechur
+ *
  */
 @Controller
 public class EntryController extends SpringMvcActionContext {

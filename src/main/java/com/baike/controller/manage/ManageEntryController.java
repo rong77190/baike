@@ -66,5 +66,4 @@ public class ManageEntryController {
     public String cancel(){
         return "redirect:entryList.jsp";
     }
-
 }
